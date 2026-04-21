@@ -1,0 +1,48 @@
+name: M3U Failover Birleştirici
+
+on:
+  # Manuel çalıştırma
+  workflow_dispatch:
+  
+  # Her gün saat 06:00'da otomatik çalışsın (Türkiye saati)
+  schedule:
+    - cron: '0 3 * * *'
+  
+  # input klasöründe değişiklik olunca çalışsın
+  push:
+    paths:
+      - 'input/**'
+
+jobs:
+  merge-m3u:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Repo'yu çek
+      - name: 📥 Repo'yu Çek
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      # 2. Python kur
+      - name: 🐍 Python Kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # 3. Output klasörünü oluştur
+      - name: 📁 Output Klasörü Oluştur
+        run: mkdir -p output
+      
+      # 4. Scripti çalıştır
+      - name: 🔄 M3U Birleştir
+        run: python scripts/m3u_birlestir.py
+      
+      # 5. Değişiklikleri kaydet ve gönder
+      - name: 📤 Değişiklikleri Gönder
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add output/
+          git diff --staged --quiet || git commit -m "🔄 M3U güncellendi - $(date +'%Y-%m-%d %H:%M')"
+          git push
