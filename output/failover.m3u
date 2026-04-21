@@ -1,0 +1,129 @@
+#EXTM3U
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  📺 M3U Failover Liste - Kalite Sıralamalı                   ║
+# ║  📅 Güncelleme : 2026-04-21 11:39:50                         ║
+# ║  📊 Toplam Kanal: 40                                          ║
+# ║  🔗 Toplam Link : 40                                          ║
+# ║  📈 Sıralama    : 4K → FHD → HD → SD → Bilinmiyor            ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports 1A
+https://api.hitnova.net/s/zirve/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports 2A
+https://api.hitnova.net/s/b2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports 3A
+https://api.hitnova.net/s/b3/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports 4A
+https://api.hitnova.net/s/b4/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports 5A
+https://api.hitnova.net/s/b5/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports Max 1A
+https://api.hitnova.net/s/bm1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",beIN Sports Max2A
+https://api.hitnova.net/s/bm2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/0/07/S_Sport_logo.png" group-title="Spor",S Sport 1A
+https://api.hitnova.net/s/ss/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/0/07/S_Sport_logo.png" group-title="Spor",S Sport 2A
+https://api.hitnova.net/s/ss2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/d/db/TivibuSporLogo1.PNG" group-title="Spor",Tivibu Spor 1A
+https://api.hitnova.net/s/t1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/d/db/TivibuSporLogo1.PNG" group-title="Spor",Tivibu Spor 2A
+https://api.hitnova.net/s/t2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/d/db/TivibuSporLogo1.PNG" group-title="Spor",Tivibu Spor 3A
+https://api.hitnova.net/s/t3/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/d/db/TivibuSporLogo1.PNG" group-title="Spor",Tivibu Spor 4A
+https://api.hitnova.net/s/t4/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",Smart Sport 1A
+https://api.hitnova.net/s/smarts/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/b/b2/SporSMART_HD_logo.png" group-title="Spor",Smart Sport 2A
+https://api.hitnova.net/s/sms2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e6/Eurosport_1_Logo_2015.png" group-title="Spor",Eurosport 1A
+https://api.hitnova.net/s/eu1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/d/d0/Eurosport_2_Logo_2015.png" group-title="Spor",Eurosport 2A
+https://api.hitnova.net/s/eu2/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/e/e9/A_Spor_logosu.png" group-title="Spor",A Spor
+https://api.hitnova.net/s/as/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/c/c4/TRT_Spor_kurumsal_logo.png" group-title="Spor",Trt Spor
+https://api.hitnova.net/s/trtspor/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/0/01/%C4%B0dman_TV_logo.png" group-title="Spor",Idman Tv
+https://andro.evrenosoglu53.lat/checklist/androstreamliveidm.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/az/0/04/CBC_Sport_TV_loqo.png" group-title="Spor",CBC Sport
+https://andro.evrenosoglu53.lat/checklist/androstreamlivecbcs.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6c/TRT_1_logo_%282012-2021%29.png" group-title="TR",Trt 1
+https://api.hitnova.net/s/trt1/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6c/TRT_1_logo_%282012-2021%29.png" group-title="TR",Trt 1 Yedek
+https://tv-trt1.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/8d/TRT2TemsiliLogo.png" group-title="TR",Trt 2
+https://tv-trt2.medya.trt.com.tr/master_1440.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/78/Atv_logosu.png" group-title="TR",ATV
+https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/78/Atv_logosu.png" group-title="TR",ATV Yedek
+https://api.hitnova.net/s/atv/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f1/Logo_of_Show_TV.png" group-title="TR",Show Tv
+https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/a/a4/Kanal_D_logo.png" group-title="TR",Kanal D
+http://129.151.196.133/Tivizon.php?ID=kanald
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/a/a4/Kanal_D_logo.png" group-title="TR",Kanal D Yedek
+https://ackaxsqacw.turknet.ercdn.net/ozfkfbbjba/kanald/kanald_1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://filedn.eu/l5ABGVFVcpIfW9YXHkcxLX7/freelogo/fox-turkiye-logo.png" group-title="TR",Now Tv
+https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv_720p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/9/92/Star_TV_.png" group-title="TR",Star Tv
+https://dygvideo.dygdigital.com/live/hls/startv4puhu
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/6/68/Tv8_Yeni_Logo.png" group-title="TR",Tv 8
+https://api.hitnova.net/s/tv8/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/tr/6/68/Tv8_Yeni_Logo.png" group-title="TR",TV 8.5
+https://api.hitnova.net/s/tv85/mono.m3u8
+
+#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/c/ce/Kanal_7_logosu.png" group-title="TR",Kanal 7
+https://yurhnwtpys.turknet.ercdn.net/cvmbjbpmdx/kanal7/kanal7_1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b5/NTV_logo.png" group-title="TR",Ntv
+https://dogus.daioncdn.net/ntv/ntv_1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6b/TRT_Haber_logosu_%282013-2020%29.png" group-title="TR",Trt Haber
+https://tv-trthaber.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/78/Haberturk_logo.png" group-title="TR",Haber  Türk
+https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/haberturktv/haberturktv_1080p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/ba/TRT_Belgesel_kurumsal_logo_%282015-2019%29.png" group-title="TR",Trt Belgesel
+http://live.tabitv.workers.dev/?ID=tabii%20TV
+
+#EXTINF:-1 tvg-logo="https://i.hizliresim.com/qg6q0zx.png" group-title="TR",Haber Global
+https://tv.ensonhaber.com/haberglobal/haberglobal_720p.m3u8
+
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/23/TRT_%C3%A7ocuk_logo.png" group-title="TR",Trt Cocuk
+https://tv-trtcocuk.medya.trt.com.tr/master_1080.m3u8
+
