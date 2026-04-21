@@ -17,8 +17,8 @@ https://tv-trt1.medya.trt.com.tr/master.m3u8
 https://siraucbeyaz.denek1544.workers.dev/izle/trt1-114.m3u8
 
 
-#EXTINF:-1 tvg-id="testatv" tvg-name="atv - test" group-title="patr0n",atv - test3
-http://87.121.104.29:2003/izle/YXR2.m3u8|https://siraucbeyaz.denek1544.workers.dev/izle/startv-113.m3u8
+#EXTINF:-1 tvg-id="testatv" tvg-name="atv - test" group-title="patr0n",atv -workers
+https://34.magnitude.workers.dev//stream/atv
 #EXTINF:-1 tvg-id="trt1" tvg-name="TRT 1 -A-" tvg-logo="https://a.prectv67.lol/uploads/cache/channel_thumb/uploads/jpg/14f516e981f4bc0961c5a162665814bf.jpg" group-title="Ulusal",TRT 1 -A-
 https://tv-trt1.medya.trt.com.tr/master.m3u8
 
