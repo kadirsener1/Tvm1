@@ -3,9 +3,10 @@
 # YouTube Channels: 86 | External: 117 | Total: 203
 
 
-#EXTINF:-1 tvg-id="kanald" group-title="Türkiye", 2 nova
+#EXTINF:-1 tvg-id="kanald" group-title="Türkiye", 2 nova2
 #EXTVLCOPT:https://inattv1295.xyz/
 https://api.hitnova.net/s/b2/mono.m3u8
+https://siraucbeyaz.denek1544.workers.dev/izle/startv-113.m3u8
 #EXTINF:-1 tvg-id="patr0nListe" tvg-name="patr0n - kablo yüzünden bazı yayınlar deaktif" group-title="patr0n",patr0n - kablo yüzünden bazı yayınlar deaktif
 https://patr0npatr0npatr0n.patr0n
 #EXTINF:-1 tvg-id="kanald" group-title="Türkiye", Kanal D
