@@ -20,6 +20,7 @@ OUTPUT_FILE   = "failover.m3u"
 
 # 📡 M3U URL LİSTESİ (İstediğin kadar ekle veya sil)
 M3U_URLS = [
+    "https://tinyurl.com/ytpatron",
     "https://raw.githubusercontent.com/kadirsener1/tivim/main/1.m3u",
     "https://raw.githubusercontent.com/kadirsener1/atom/main/playlist.m3u"
     "https://iptv-org.github.io/iptv/countries/tr.m3u",
