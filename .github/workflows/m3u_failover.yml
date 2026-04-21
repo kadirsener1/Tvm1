@@ -32,9 +32,11 @@ jobs:
           mkdir -p input
           mkdir -p output
       
-      - name: 🔄 M3U Birleştir
+        - name: 🔄 M3U Birleştir
+        env:
+          M3U_URL_1: ${{ secrets.M3U_URL_1 }}
+          M3U_URL_2: ${{ secrets.M3U_URL_2 }}
         run: python scripts/m3u_birlestir.py
-      
       - name: 📤 Değişiklikleri Gönder
         run: |
           git config --local user.email "action@github.com"
