@@ -48,7 +48,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # ✅ cache satırı kaldırıldı (hata buydu)
 
       # ── 3. Bağımlılıkları Kur ──────────────────────────────────
       - name: 📦 Bağımlılıkları Kur
@@ -75,9 +75,6 @@ jobs:
       # ── 6. M3U Script'i Çalıştır ───────────────────────────────
       - name: 🔄 M3U Birleştir
         env:
-          # GitHub Secrets'tan URL'leri al
-          # Repo → Settings → Secrets → New secret
-          # M3U_URL_1, M3U_URL_2 ... şeklinde ekle
           M3U_URL_1:  ${{ secrets.M3U_URL_1 }}
           M3U_URL_2:  ${{ secrets.M3U_URL_2 }}
           M3U_URL_3:  ${{ secrets.M3U_URL_3 }}
@@ -101,7 +98,6 @@ jobs:
             exit 1
           fi
 
-          # Dosya boyutunu kontrol et
           SIZE=$(wc -c < "output/failover.m3u")
           echo "📄 Dosya boyutu: $SIZE byte"
 
@@ -110,11 +106,9 @@ jobs:
             exit 1
           fi
 
-          # Kanal sayısını göster
           CHANNEL_COUNT=$(grep -c "#EXTINF" output/failover.m3u || true)
           echo "📺 Toplam kanal: $CHANNEL_COUNT"
 
-          # Link sayısını göster
           LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || true)
           echo "🔗 Toplam link: $LINK_COUNT"
 
@@ -126,15 +120,14 @@ jobs:
 
           git add output/
 
-          # Değişiklik var mı kontrol et
           if git diff --staged --quiet; then
             echo "ℹ️ Değişiklik yok, commit atlanıyor"
           else
             CHANNEL_COUNT=$(grep -c "#EXTINF" output/failover.m3u || echo "0")
             LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || echo "0")
-            
+
             git commit -m "📺 M3U Güncellendi - $(date +'%Y-%m-%d %H:%M UTC')
-            
+
             📊 İstatistikler:
             • Toplam Kanal : $CHANNEL_COUNT
             • Toplam Link  : $LINK_COUNT
@@ -159,16 +152,12 @@ jobs:
             LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || echo "0")
             SIZE_KB=$(du -k output/failover.m3u | cut -f1)
 
-            echo "║  ✅ Durum       : Başarılı                       ║"
-            echo "║  📺 Kanal       : $CHANNEL_COUNT                              ║"
-            echo "║  🔗 Link        : $LINK_COUNT                              ║"
-            echo "║  💾 Boyut       : ${SIZE_KB} KB                            ║"
-            echo "║                                                  ║"
-            echo "║  📡 Çıktı URL:                                   ║"
-            echo "║  https://raw.githubusercontent.com/              ║"
-            echo "║  ${{ github.repository }}/main/output/failover.m3u"
+            echo "║  ✅ Durum  : Başarılı                            ║"
+            echo "║  📺 Kanal  : $CHANNEL_COUNT                              ║"
+            echo "║  🔗 Link   : $LINK_COUNT                              ║"
+            echo "║  💾 Boyut  : ${SIZE_KB} KB                            ║"
           else
-            echo "║  ❌ Durum       : Başarısız                      ║"
+            echo "║  ❌ Durum  : Başarısız                           ║"
           fi
 
           echo "╚══════════════════════════════════════════════════╝"
