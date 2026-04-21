@@ -1,46 +1,174 @@
-name: M3U Failover Birleştirici
+name: 📺 M3U Failover Birleştirici
 
 on:
+  # ── Manuel çalıştırma ──────────────────────────────────────────
   workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Zorla güncelle (cache yoksay)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+  # ── Otomatik zamanlama (Her gün 06:00 Türkiye saati) ───────────
   schedule:
-    - cron: '0 3 * * *'  # Her gün 06:00 Türkiye saati
+    - cron: '0 3 * * *'
+
+  # ── input/ veya scripts/ değişince otomatik çalış ──────────────
   push:
     paths:
       - 'input/**'
       - 'scripts/**'
+      - '.github/workflows/**'
+
+# ── İzinler ────────────────────────────────────────────────────────
+permissions:
+  contents: write
 
 jobs:
   merge-m3u:
+    name: 🔄 M3U Birleştir ve Sırala
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 30
+
     steps:
+
+      # ── 1. Repo'yu Çek ─────────────────────────────────────────
       - name: 📥 Repo'yu Çek
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: 🐍 Python Kur
+          fetch-depth: 1
+
+      # ── 2. Python Kur ──────────────────────────────────────────
+      - name: 🐍 Python 3.11 Kur
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+          cache: 'pip'
+
+      # ── 3. Bağımlılıkları Kur ──────────────────────────────────
       - name: 📦 Bağımlılıkları Kur
-        run: pip install requests
-      
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # ── 4. Klasörleri Oluştur ──────────────────────────────────
       - name: 📁 Klasörleri Oluştur
         run: |
           mkdir -p input
           mkdir -p output
-      
-        - name: 🔄 M3U Birleştir
+          mkdir -p scripts
+
+      # ── 5. Script Var mı Kontrol Et ────────────────────────────
+      - name: 🔍 Script Kontrolü
+        run: |
+          if [ ! -f "scripts/m3u_birlestir.py" ]; then
+            echo "❌ scripts/m3u_birlestir.py bulunamadı!"
+            exit 1
+          fi
+          echo "✅ Script bulundu"
+
+      # ── 6. M3U Script'i Çalıştır ───────────────────────────────
+      - name: 🔄 M3U Birleştir
         env:
-          M3U_URL_1: ${{ secrets.M3U_URL_1 }}
-          M3U_URL_2: ${{ secrets.M3U_URL_2 }}
-        run: python scripts/m3u_birlestir.py
+          # GitHub Secrets'tan URL'leri al
+          # Repo → Settings → Secrets → New secret
+          # M3U_URL_1, M3U_URL_2 ... şeklinde ekle
+          M3U_URL_1:  ${{ secrets.M3U_URL_1 }}
+          M3U_URL_2:  ${{ secrets.M3U_URL_2 }}
+          M3U_URL_3:  ${{ secrets.M3U_URL_3 }}
+          M3U_URL_4:  ${{ secrets.M3U_URL_4 }}
+          M3U_URL_5:  ${{ secrets.M3U_URL_5 }}
+          M3U_URL_6:  ${{ secrets.M3U_URL_6 }}
+          M3U_URL_7:  ${{ secrets.M3U_URL_7 }}
+          M3U_URL_8:  ${{ secrets.M3U_URL_8 }}
+          M3U_URL_9:  ${{ secrets.M3U_URL_9 }}
+          M3U_URL_10: ${{ secrets.M3U_URL_10 }}
+        run: |
+          echo "🚀 Script başlatılıyor..."
+          python scripts/m3u_birlestir.py
+          echo "✅ Script tamamlandı"
+
+      # ── 7. Çıktı Dosyasını Kontrol Et ──────────────────────────
+      - name: 🔍 Çıktı Kontrolü
+        run: |
+          if [ ! -f "output/failover.m3u" ]; then
+            echo "❌ output/failover.m3u oluşturulamadı!"
+            exit 1
+          fi
+
+          # Dosya boyutunu kontrol et
+          SIZE=$(wc -c < "output/failover.m3u")
+          echo "📄 Dosya boyutu: $SIZE byte"
+
+          if [ "$SIZE" -lt 100 ]; then
+            echo "⚠️ Dosya çok küçük, bir sorun olabilir!"
+            exit 1
+          fi
+
+          # Kanal sayısını göster
+          CHANNEL_COUNT=$(grep -c "#EXTINF" output/failover.m3u || true)
+          echo "📺 Toplam kanal: $CHANNEL_COUNT"
+
+          # Link sayısını göster
+          LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || true)
+          echo "🔗 Toplam link: $LINK_COUNT"
+
+      # ── 8. Değişiklikleri Kaydet ve Gönder ─────────────────────
       - name: 📤 Değişiklikleri Gönder
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
           git add output/
-          git diff --staged --quiet || git commit -m "🔄 M3U güncellendi - $(date +'%Y-%m-%d %H:%M')"
-          git push
+
+          # Değişiklik var mı kontrol et
+          if git diff --staged --quiet; then
+            echo "ℹ️ Değişiklik yok, commit atlanıyor"
+          else
+            CHANNEL_COUNT=$(grep -c "#EXTINF" output/failover.m3u || echo "0")
+            LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || echo "0")
+            
+            git commit -m "📺 M3U Güncellendi - $(date +'%Y-%m-%d %H:%M UTC')
+            
+            📊 İstatistikler:
+            • Toplam Kanal : $CHANNEL_COUNT
+            • Toplam Link  : $LINK_COUNT
+            • Sıralama     : 4K → FHD → HD → SD
+            • Failover     : Aktif"
+
+            git push
+            echo "✅ Değişiklikler gönderildi"
+          fi
+
+      # ── 9. Özet Bilgi ──────────────────────────────────────────
+      - name: 📋 Özet
+        if: always()
+        run: |
+          echo ""
+          echo "╔══════════════════════════════════════════════════╗"
+          echo "║              📋 İŞ ÖZETI                         ║"
+          echo "╠══════════════════════════════════════════════════╣"
+
+          if [ -f "output/failover.m3u" ]; then
+            CHANNEL_COUNT=$(grep -c "#EXTINF" output/failover.m3u || echo "0")
+            LINK_COUNT=$(grep -cE "^https?://" output/failover.m3u || echo "0")
+            SIZE_KB=$(du -k output/failover.m3u | cut -f1)
+
+            echo "║  ✅ Durum       : Başarılı                       ║"
+            echo "║  📺 Kanal       : $CHANNEL_COUNT                              ║"
+            echo "║  🔗 Link        : $LINK_COUNT                              ║"
+            echo "║  💾 Boyut       : ${SIZE_KB} KB                            ║"
+            echo "║                                                  ║"
+            echo "║  📡 Çıktı URL:                                   ║"
+            echo "║  https://raw.githubusercontent.com/              ║"
+            echo "║  ${{ github.repository }}/main/output/failover.m3u"
+          else
+            echo "║  ❌ Durum       : Başarısız                      ║"
+          fi
+
+          echo "╚══════════════════════════════════════════════════╝"
