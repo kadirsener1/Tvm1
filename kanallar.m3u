@@ -2,8 +2,18 @@
 # PatronYT M3U Playlist - Generated: 2026-04-20 23:13:25
 # YouTube Channels: 86 | External: 117 | Total: 203
 
+
+#EXTINF:-1 tvg-id="kanald" group-title="Türkiye", 2 nova
+#EXTVLCOPT:https://inattv1295.xyz/
+https://api.hitnova.net/s/b2/mono.m3u8
 #EXTINF:-1 tvg-id="patr0nListe" tvg-name="patr0n - kablo yüzünden bazı yayınlar deaktif" group-title="patr0n",patr0n - kablo yüzünden bazı yayınlar deaktif
 https://patr0npatr0npatr0n.patr0n
+#EXTINF:-1 tvg-id="kanald" group-title="Türkiye", Kanal D
+# Link 1: FHD/1080p
+https://tv-trt1.medya.trt.com.tr/master.m3u8
+# Link 2: HD/720p
+https://siraucbeyaz.denek1544.workers.dev/izle/trt1-114.m3u8
+
 
 #EXTINF:-1 tvg-id="testatv" tvg-name="atv - test" group-title="patr0n",atv - test
 http://87.121.104.29:2003/izle/YXR2.m3u8
